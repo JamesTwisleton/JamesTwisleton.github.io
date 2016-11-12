@@ -17,41 +17,34 @@ angular.module('teamform-admin-app', ['firebase'])
 	
 	// Initialize $scope.param as an empty JSON object
 	$scope.param = {};
-
+			
 	// Call Firebase initialization code defined in site.js
 	initalizeFirebase();
-	var provider = new firebase.auth.FacebookAuthProvider();
 
-	firebase.auth().signInWithRedirect(provider).then(function(result) {
-  	// This gives you a Facebook Access Token. You can use it to access the Facebook API.
-  	var token = result.credential.accessToken;
-  	// The signed-in user info.
-  	var user = result.user;
-  	// ...
+
+	var ref = new Firebase("comp3111-1b643.firebaseio.com");
+  // create an instance of the authentication service
+  var auth = $firebaseAuth(ref);
+  // login with Facebook
+  auth.$authWithOAuthPopup("facebook").then(function(authData) {
+    console.log("Logged in as:", authData.uid);
   }).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // The email of the user's account used.
-  var email = error.email;
-  // The firebase.auth.AuthCredential type that was used.
-  var credential = error.credential;
-  // ...
-});
+    console.log("Authentication failed:", error);
+  });
+	
+	
+	var refPath, ref, eventName;
 
-
-  var refPath, ref, eventName;
-
-  eventName = getURLParameter("q");
-  refPath = eventName + "/admin/param";	
-  ref = firebase.database().ref(refPath);
-
+	eventName = getURLParameter("q");
+	refPath = eventName + "/admin/param";	
+	ref = firebase.database().ref(refPath);
+		
 	// Link and sync a firebase object
 	
 	$scope.param = $firebaseObject(ref);
 	$scope.param.$loaded()
-	.then( function(data) {
-
+		.then( function(data) {
+			
 			// Fill in some initial values when the DB entry doesn't exist			
 			if(typeof $scope.param.maxTeamSize == "undefined"){				
 				$scope.param.maxTeamSize = 10;
@@ -63,11 +56,11 @@ angular.module('teamform-admin-app', ['firebase'])
 			// Enable the UI when the data is successfully loaded and synchornized
 			$('#admin_page_controller').show(); 				
 		}) 
-	.catch(function(error) {
+		.catch(function(error) {
 			// Database connection error handling...
 			//console.error("Error:", error);
 		});
-
+		
 	
 	refPath = eventName + "/team";	
 	$scope.team = [];
@@ -110,5 +103,5 @@ angular.module('teamform-admin-app', ['firebase'])
 		window.location.href= "index.html";
 	}
 	
-
+		
 }]);
