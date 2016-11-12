@@ -26,7 +26,8 @@
 
     <!-- Theme CSS -->
     <link href="css/creative.min.css" rel="stylesheet">
-
+	<link href="css/modal.css" rel="stylesheet">
+	<link href="css/video.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -415,26 +416,22 @@
                   
                   <div class="col-xs-6 col-md-3">
                   <div class="thumbnail text-center">   			
-                    <a href="https://www.youtube.com/watch?v=kxopViU98Xo" class="portfolio-box">
-                        <img src="pic/msluk.jpg" style="width:304px;height:228px;border:0;" class="img-circle img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-category text-faded">
-                                   ABOUT ME!
-                                </div>
-                                <div class="project-name">
-                                   CLICK TO PLAY~
-                                </div>
-                            </div>
-                        </div>       
-					</a>
+                   
+	<img id="myImg" src="pic/msluk.jpg" alt="Hello, I'm Brian. Year3 COMP Student! " width="300" height="200">
+
+		<!-- The Modal -->
+	<div id="myModal" class="modal">
+	<span class="close">x</span>
+	<img class="modal-content" id="img01">
+	<div id="caption"></div>
+	</div>
 					
                     <div class="caption">
                      <h4>Luk Man Sum</h4>
                      <p>
 					 <span class="glyphicon glyphicon-envelope"></span>
 					 msluk@ust.hk</p>
-                     
+                     <a href="https://www.youtube.com/watch?v=kxopViU98Xo" >More about me~</a>
                     </div>
                   </div>
                  </div> 
@@ -460,7 +457,8 @@
     <script src="js/site.js"></script>
     <!-- JavaScript of this page -->
       <script src="js/index.js"></script>
-
+	<script src="js/modal.js"></script>
+	
 </body>
 
 </html>
