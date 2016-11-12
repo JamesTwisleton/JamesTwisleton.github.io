@@ -22,16 +22,15 @@ angular.module('teamform-admin-app', ['firebase'])
 	initalizeFirebase();
 
 
-	var ref = new Firebase("comp3111-1b643.firebaseio.com");
   // create an instance of the authentication service
-  var auth = $firebaseAuth(ref);
+  var auth = $firebaseAuth(firebase);
   // login with Facebook
   auth.$authWithOAuthPopup("facebook").then(function(authData) {
     console.log("Logged in as:", authData.uid);
   }).catch(function(error) {
     console.log("Authentication failed:", error);
   });
-	
+
 	
 	var refPath, ref, eventName;
 
