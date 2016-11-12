@@ -1,35 +1,30 @@
-// Find all YouTube videos
-var $allVideos = $("iframe[src^='//www.youtube.com']"),
+$(function() {
 
-    // The element that is fluid width
-    $fluidEl = $("body");
+    var $allVideos = $("iframe[src^='//player.vimeo.com'], iframe[src^='//www.youtube.com'], object, embed"),
+    $fluidEl = $("figure");
 
-// Figure out and save aspect ratio for each video
-$allVideos.each(function() {
+	$allVideos.each(function() {
 
-  $(this)
-    .data('aspectRatio', this.height / this.width)
+	  $(this)
+	    // jQuery .data does not work on object/embed elements
+	    .attr('data-aspectRatio', this.height / this.width)
+	    .removeAttr('height')
+	    .removeAttr('width');
 
-    // and remove the hard coded width/height
-    .removeAttr('height')
-    .removeAttr('width');
+	});
+
+	$(window).resize(function() {
+
+	  var newWidth = $fluidEl.width();
+	  $allVideos.each(function() {
+
+	    var $el = $(this);
+	    $el
+	        .width(newWidth)
+	        .height(newWidth * $el.attr('data-aspectRatio'));
+
+	  });
+
+	}).resize();
 
 });
-
-// When the window is resized
-$(window).resize(function() {
-
-  var newWidth = $fluidEl.width();
-
-  // Resize all videos according to their own aspect ratio
-  $allVideos.each(function() {
-
-    var $el = $(this);
-    $el
-      .width(newWidth)
-      .height(newWidth * $el.data('aspectRatio'));
-
-  });
-
-// Kick off one resize to fix all videos on page load
-}).resize();
