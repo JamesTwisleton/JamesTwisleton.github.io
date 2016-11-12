@@ -125,7 +125,7 @@ angular.module('teamform-team-app', ['firebase'])
 				// console.log("Success..");
 				
 				// Finally, go back to the front-end
-				// window.location.href= "index.html";
+				// window.location.href= "index_with_template.html";
 			});
 			
 			
