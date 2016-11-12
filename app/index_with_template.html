@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<audio src="bgm.mp3" autoplay>
+<embed src="bgm.mp3" width="180" height="90" hidden="true" />
+</audio>
 <head>
 
     <meta charset="utf-8">
@@ -9,8 +11,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Creative - Start Bootstrap Theme</title>
-
+    <title>NOW3H3R3 - TEAM FORMING PLATFORM</title>
+	<link rel="icon" type="image/x-icon" href="pic/n14.ico" />
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -82,16 +84,15 @@
         </div>
     </header>
 
-    <section class="bg-primary" id="suggestions">
+   <section class="bg-primary" id="suggestions">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Here's our suggestions for you !</h2>
+                    <h2 class="section-heading">HOW TO USE THIS TOOL?</h2>
                     <hr class="light">
-                    <p class="text-faded">Based on your preference and experience, we find out some events and teams for you !</p>
-                    <p> // add some pictures or list here  </p>
-                    <p class="text-faded">Not interested in these? Check out more</p>
-                    <a href="#on-going" class="page-scroll btn btn-default btn-xl sr-button">What's more!</a>
+                    <p class="text-faded">We have made a tutorial for you!</p>
+                   <iframe width="854" height="480" src="https://www.youtube.com/embed/L0MK7qz13bU" frameborder="0" allowfullscreen></iframe>
+                    <a href="#on-going" class="page-scroll btn btn-default btn-xl sr-button">Ready To Start!</a>
                 </div>
             </div>
         </div>
@@ -412,14 +413,27 @@
                    </div> 
                   
                   
-                 <div class="col-xs-6 col-md-3">
-                  <div class="thumbnail text-center">
-                    <a href="https://www.youtube.com/watch?v=kxopViU98Xo">
-                    <img src="pic/msluk.jpg"  style="width:304px;height:228px;border:0;" class="img-circle img-responsive">
-                    </a>
+                  <div class="col-xs-6 col-md-3">
+                  <div class="thumbnail text-center">   			
+                    <a href="https://www.youtube.com/watch?v=kxopViU98Xo" class="portfolio-box">
+                        <img src="pic/msluk.jpg" style="width:304px;height:228px;border:0;" class="img-circle img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                   ABOUT ME!
+                                </div>
+                                <div class="project-name">
+                                   CLICK TO PLAY~
+                                </div>
+                            </div>
+                        </div>       
+					</a>
+					
                     <div class="caption">
                      <h4>Luk Man Sum</h4>
-                     <p>msluk@ust.hk</p>
+                     <p>
+					 <span class="glyphicon glyphicon-envelope"></span>
+					 msluk@ust.hk</p>
                      
                     </div>
                   </div>
@@ -441,6 +455,7 @@
 
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
+	<script src="js/video.js"></script>
     <!-- Customized libraries shared by pages -->
     <script src="js/site.js"></script>
     <!-- JavaScript of this page -->
