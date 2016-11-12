@@ -20,17 +20,6 @@ angular.module('teamform-admin-app', ['firebase'])
 			
 	// Call Firebase initialization code defined in site.js
 	initalizeFirebase();
-
-
-  // create an instance of the authentication service
-  var auth = $firebaseAuth(firebase);
-  // login with Facebook
-  auth.$authWithOAuthPopup("facebook").then(function(authData) {
-    console.log("Logged in as:", authData.uid);
-  }).catch(function(error) {
-    console.log("Authentication failed:", error);
-  });
-
 	
 	var refPath, ref, eventName;
 
