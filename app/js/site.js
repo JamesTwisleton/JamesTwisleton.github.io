@@ -25,19 +25,41 @@ function getRandomIntInclusive(min, max) {
 // Please change this function accordingly
 // Reference: https://console.firebase.google.com 
 //
-
 function initalizeFirebase() {
 	
-  // Initialize Firebase
+  //Initialize firebase
   var config = {
-    apiKey: "AIzaSyDTXQFSuriwxpvJd0mZHElmLmhL8AIYmWE",
-    authDomain: "teamform-15bcb.firebaseapp.com",
-    databaseURL: "https://teamform-15bcb.firebaseio.com",
-    storageBucket: "teamform-15bcb.appspot.com",
+    apiKey: "AIzaSyCTAsmdevkfSfT_BUGEFiA7W_zeBnBXtao",
+    authDomain: "comp3111-1b643.firebaseapp.com",
+    databaseURL: "https://comp3111-1b643.firebaseio.com",
+    storageBucket: "comp3111-1b643.appspot.com",
+    messagingSenderId: "581810166146"
   };
   firebase.initializeApp(config);
 
+
+  var provider = new firebase.auth.FacebookAuthProvider();
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+});
+
+
 }    
+
+
 
 //
 // User-defined function - Useful for retrieving an object once, without 3-way sync 

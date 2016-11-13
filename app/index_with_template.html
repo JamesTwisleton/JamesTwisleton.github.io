@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<audio src="bgm.mp3" autoplay>
+<embed src="bgm.mp3" width="180" height="90" hidden="true" />
+</audio>
 <head>
 
     <meta charset="utf-8">
@@ -9,8 +11,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Creative - Start Bootstrap Theme</title>
-
+    <title>NOW3H3R3 - TEAM FORMING PLATFORM</title>
+	<link rel="icon" type="image/x-icon" href="pic/n14.ico" />
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -24,7 +26,9 @@
 
     <!-- Theme CSS -->
     <link href="css/creative.min.css" rel="stylesheet">
-
+	<link href="css/modal.css" rel="stylesheet">
+	<link href="css/video.css" rel="stylesheet">
+	<link href="css/box.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -82,16 +86,16 @@
         </div>
     </header>
 
-    <section class="bg-primary" id="suggestions">
+   <section class="bg-primary" id="suggestions">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Here's our suggestions for you !</h2>
+                    <h2 class="section-heading">HOW TO USE THIS TOOL?</h2>
                     <hr class="light">
-                    <p class="text-faded">Based on your preference and experience, we find out some events and teams for you !</p>
-                    <p> // add some pictures or list here  </p>
-                    <p class="text-faded">Not interested in these? Check out more</p>
-                    <a href="#on-going" class="page-scroll btn btn-default btn-xl sr-button">What's more!</a>
+                    <p class="text-faded">We have made a tutorial for you!</p>
+					<div class="video-container"> <iframe width="854" height="480" src="https://www.youtube.com/embed/L0MK7qz13bU" frameborder="0" allowfullscreen></iframe></div>
+                  
+                    <a href="#on-going" class="page-scroll btn btn-default btn-xl sr-button">Ready To Start!</a>
                 </div>
             </div>
         </div>
@@ -412,16 +416,44 @@
                    </div> 
                   
                   
-                 <div class="col-xs-6 col-md-3">
-                  <div class="thumbnail text-center">
-                    <a href="https://www.youtube.com/watch?v=kxopViU98Xo">
-                    <img src="pic/msluk.jpg"  style="width:304px;height:228px;border:0;" class="img-circle img-responsive">
-                    </a>
+                  <div class="col-xs-6 col-md-3">
+                  <div class="thumbnail text-center">   			
+				 
+				 <img id="myImg" src="pic/msluk.jpg" alt=" " width="300" height="200">
+                   
+				<!-- The Modal -->
+				<div id="myModal" class="modal">
+				<span class="close">Close</span>
+				<img class="modal-content" id="img01">
+				<div id="caption"></div>
+				</div>
+				  
+	
+	
+					
                     <div class="caption">
-                     <h4>Luk Man Sum</h4>
-                     <p>msluk@ust.hk</p>
-                     
-                    </div>
+					 <!-- Trigger/Open The Modal -->
+					<button id="myBtn">About Me</button>
+
+					<!-- The Modal -->
+					<div id="myBox" class="box">
+
+					<!-- Modal content -->
+					<div class="box-content">
+					<div class="box-header">  
+					<h2><font color="SlateBlue">Luk Man Sum</font></h2>
+					</div>
+					<div class="box-body">
+					<p><font color="Indigo">Hello, I'm Brian. Year3 COMP Student!</font></p>
+					<p> <font color="RebeccaPurple"><span class="glyphicon glyphicon-envelope"></span>
+					 msluk@ust.hk</font></p>
+					</div>
+					<div class="box-footer">
+					<h3><a href="https://www.youtube.com/watch?v=kxopViU98Xo" ><font color="DarkMagenta">"More about me~</font></a></h3>
+					</div>
+					</div>
+
+				
                   </div>
                  </div> 
             </div>
@@ -441,11 +473,14 @@
 
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
+	<script src="js/video.js"></script>
     <!-- Customized libraries shared by pages -->
     <script src="js/site.js"></script>
     <!-- JavaScript of this page -->
       <script src="js/index.js"></script>
-
+	<script src="js/modal.js"></script>
+	<script src="js/box.js"></script>
+	
 </body>
 
 </html>
