@@ -19,41 +19,62 @@ angular.module('teamform-admin-app', ['firebase'])
 	
 	// Initialize $scope.param as an empty JSON object
 	$scope.param = {};
-			
+	
 	// Call Firebase initialization code defined in site.js
 	initalizeFirebase();
-	
-	var provider = new firebase.auth.FacebookAuthProvider();
 
-	function firebase.auth().signInWithPopup(provider).then(function(result) {
-  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-  var token = result.credential.accessToken;
-  // The signed-in user info.
+
+	//Facebook login
+	// First, we perform the signInWithRedirect.
+// Creates the provider object.
+var provider = new firebase.auth.FacebookAuthProvider();
+// You can add additional scopes to the provider:
+provider.addScope('email');
+provider.addScope('user_friends');
+// Sign in with redirect:
+auth.signInWithRedirect(provider)
+////////////////////////////////////////////////////////////
+// The user is redirected to the provider's sign in flow...
+////////////////////////////////////////////////////////////
+// Then redirected back to the app, where we check the redirect result:
+auth.getRedirectResult().then(function(result) {
+  // The firebase.User instance:
   var user = result.user;
-  // ...
-}).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // The email of the user's account used.
+  // The Facebook firebase.auth.AuthCredential containing the Facebook
+  // access token:
+  var credential = result.credential;
+}, function(error) {
+  // The provider's account email, can be used in case of
+  // auth/account-exists-with-different-credential to fetch the providers
+  // linked to the email:
   var email = error.email;
-  // The firebase.auth.AuthCredential type that was used.
+  // The provider's credential:
   var credential = error.credential;
-  // ...
+  // In case of auth/account-exists-with-different-credential error,
+  // you can fetch the providers using this:
+  if (error.code === 'auth/account-exists-with-different-credential') {
+  	auth.fetchProvidersForEmail(email).then(function(providers) {
+      // The returned 'providers' is a list of the available providers
+      // linked to the email address. Please refer to the guide for a more
+      // complete explanation on how to recover from this error.
+  });
+  }
 });
 
-	var refPath, ref, eventName;
 
-	eventName = getURLParameter("q");
-	refPath = eventName + "/admin/param";	
-	ref = firebase.database().ref(refPath);
-		
+
+var refPath, ref, eventName;
+
+eventName = getURLParameter("q");
+refPath = eventName + "/admin/param";	
+ref = firebase.database().ref(refPath);
+
 	// Link and sync a firebase object
 	
 	$scope.param = $firebaseObject(ref);
 	$scope.param.$loaded()
-		.then( function(data) {
-			
+	.then( function(data) {
+		
 			// Fill in some initial values when the DB entry doesn't exist			
 			if(typeof $scope.param.maxTeamSize == "undefined"){				
 				$scope.param.maxTeamSize = 10;
@@ -65,11 +86,11 @@ angular.module('teamform-admin-app', ['firebase'])
 			// Enable the UI when the data is successfully loaded and synchornized
 			$('#admin_page_controller').show(); 				
 		}) 
-		.catch(function(error) {
+	.catch(function(error) {
 			// Database connection error handling...
 			//console.error("Error:", error);
 		});
-		
+	
 	
 	refPath = eventName + "/team";	
 	$scope.team = [];
@@ -112,5 +133,5 @@ angular.module('teamform-admin-app', ['firebase'])
 		window.location.href= "index.html";
 	}
 	
-		
+	
 }]);
