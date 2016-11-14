@@ -49,6 +49,9 @@ p {
   background-color: #222222;
   color: white;
 }
+.bg-lightblue {
+  background-color: lightblue;
+}
 .text-faded {
   color: rgba(255, 255, 255, 0.7);
 }
