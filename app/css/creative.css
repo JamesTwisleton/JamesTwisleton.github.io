@@ -11,6 +11,14 @@ body {
 body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
 }
+
+
+.row .thumbnail {
+    border:0;
+    box-shadow:0;
+    border-radius:0;
+}
+
 hr {
   border-color: #F05F40;
   border-width: 3px;
@@ -45,6 +53,7 @@ p {
 .bg-primary {
   background-color: #F05F40;
 }
+
 .bg-dark {
   background-color: #222222;
   color: white;
