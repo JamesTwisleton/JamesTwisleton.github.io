@@ -1,366 +1,592 @@
 <!DOCTYPE html>
-<html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="keywords" content="teamform, team">
-  <!-- The meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>teamform - A real-time online team forming app</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <!-- libraries and CSS 	  
-		JQuery: Necessary for some bootstrap interactions (v1.12.4 is used)		
-		Bootstrap: Library and CSS for bootstrap framework (v3.3.7 is used)
-		Font-awesome: More icons for the web development (v4.6.3 is used)		
-		site.css: A customized css for our web application. Not from any web framework. 
-   -->
+    <title>NOW3H3R3 - TEAM FORMING PLATFORM</title>
+    <link rel="icon" type="image/x-icon" href="pic/n14.ico" />
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <script src="lib/jquery.min.js"></script>
-  <script src="lib/bootstrap.min.js"></script>
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
+        rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
-  <!-- Customized libraries shared by pages -->
-  <script src="js/site.js"></script>
-
-  <style>
-    .user {
-      display: none;
-    }
-    /*input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-}*/
-    
-    input[type=text] {
-      width: 80%;
-      box-sizing: border-box;
-      border: 2px solid #ccc;
-      border-radius: 4px;
-      font-size: 16px;
-      background-color: white;
-      background-image: url('searchicon.png');
-      background-position: 10px 10px;
-      background-repeat: no-repeat;
-      padding: 12px 20px 12px 40px;
-      -webkit-transition: width 0.4s ease-in-out;
-      transition: width 0.4s ease-in-out;
-    }
-    
-    input[type=text]:focus {
-      width: 80%;
-    }
-    
-    input[type=button],
-    input[type=submit],
-    input[type=reset] {
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      padding: 16px 32px;
-      text-decoration: none;
-      margin: 4px 2px;
-      cursor: pointer;
-    }
-    
-    select {
-      width: 80%;
-      padding: 16px 20px;
-      border: none;
-      border-radius: 4px;
-      background-color: #f1f1f1;
-    }
-    
-    textarea {
-      width: 80%;
-      height: 150px;
-      padding: 12px 20px;
-      box-sizing: border-box;
-      border: 2px solid #ccc;
-      border-radius: 4px;
-      background-color: #f8f8f8;
-      font-size: 16px;
-      resize: none;
-    }
-    
-    div:focus {
-      background-color: orangered;
-    }
-    /*.dropbtn {
-      background-color: #4CAF50;
-      color: white;
-      padding: 16px;
-      font-size: 16px;
-      border: none;
-      cursor: pointer;
-    }
-    
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    }
-    
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    
-    .dropdown-content a:hover {
-      background-color: #f1f1f1
-    }
-    
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    
-    .dropdown:hover .dropbtn {
-      background-color: #3e8e41;
-    }*/
-  </style>
-
-
-
+    <!-- Theme CSS -->
+    <link href="css/creative.min.css" rel="stylesheet">
+    <link href="css/modal.css" rel="stylesheet">
+    <link href="css/video.css" rel="stylesheet">
+    <link href="css/box.css" rel="stylesheet">
+    <link href="css/creative.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .photos {
+            list-style-type: none;
+            display: inline;
+            padding: 0
+        }
+        
+        .photos li {
+            display: inline;
+            padding-left: 11px
+        }
+    </style>
 </head>
 
-<body style="background-color: lightblue">
+<body id="page-top">
 
-  <div class="navbar-wrapper">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">NOW3H3R3</a>
+            </div>
 
-    <div class="container">
-      <nav class="navbar navbar-static-top navbar-default">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#tutorial">Tutorial</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="events.html"> Events</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="admin.html">Create event</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="team.html">Start a team</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="member.html">Join a team</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About Us</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading">Helping you to form the most suitable team</h1>
+                <hr>
+                <p>NOW3H3R3 is an place where you can find your favourite team. All we want to do is to help you form the team
+                    that suits you!</p>
+                <a href="#tutorial" class="btn btn-primary btn-xl page-scroll">Let's start !</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-primary" id="tutorial">
         <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-              aria-controls="navbar">
-                     <span class="sr-only">Toggle navigation</span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                  </button>
-            <a class="navbar-brand" href="#" style="border 100px">NOW3H3R3</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#page_about">NOW3H3R3</a></li>
-                  <li>
-                    <a href="#page_team">The Team</a>
-                  </li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Event List </a></li>
-                  <li><a href="#">Join/Start a Team </a></li>
-                  <li><a href="#">Updates </a></li>
-                </ul>
-              </li>
-
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Coverage <span class="caret"></span></a>
-
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="coverage/index.html" target="_blank">Report</a>
-                  </li>
-                  <li role="separator" class="divider"></li>
-
-                  <li>
-                    <a href="unit_tests/test_site.js" target="_blank">test_site.js (sample)</a>
-                  </li>
-
-                  <li><a href="#">TODO: Add more test cases here... </a></li>
-                </ul>
-              </li>
-
-            </ul>
-          </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">HOW?</h2>
+                    <hr class="light">
+                
+                    <div class="video-container">
+                        <iframe width="854" height="480" src="https://www.youtube.com/embed/L0MK7qz13bU" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p></p>
+                    <a href="#suggestions" class="page-scroll btn btn-default btn-xl sr-button">Join an event</a>
+                </div>
+            </div>
         </div>
-      </nav>
-    </div>
-  </div>
+    </section>
 
-  <!-- Marketing messaging and featurettes
-   ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
-  <div class="container marketing">
+<!--
+    <section class="bg-dark" id="suggestions">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12  text-center">
+                    <h2 class="section-heading">What we suggest for you :</h2>
+                    <hr class="light">
+                    <p class="text-faded">According to the questionnares... You may be interested in these events</p>
 
-    <div class="row featurette" id="page_about">
+                    <ul class="photos">
+                        <li><img src="img/portfolio/thumbnails/2.jpg" width="50%" height="50%" </li>
+                        <li><img src="img/portfolio/thumbnails/3.jpg" width="50%" height="50%" </li>
+                        <li><img src="img/portfolio/thumbnails/4.jpg" width="50%" height="50%" </li>
+                    </ul>
 
-      <div class="col-md-12">
-        <div class="row">
-          <h3 class="text-center">Welcome Username!</h3>
+
+                    <div class="container-fluid">
+                        <div class="row no-gutter popup-gallery">
+                            <div class="col-lg-4 col-sm-6">
+                                <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
+                                    <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+                                    <div class="portfolio-box-caption">
+                                        <div class="portfolio-box-caption-content">
+                                            <div class="project-category text-faded">
+                                                Event
+                                            </div>
+                                            <div class="project-name">
+                                                // Event Category 1
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-sm-6">
+                                <a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
+                                    <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
+                                    <div class="portfolio-box-caption">
+                                        <div class="portfolio-box-caption-content">
+                                            <div class="project-category text-faded">
+                                                Event
+                                            </div>
+                                            <div class="project-name">
+                                                // Event Category 2
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-sm-6">
+                                <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
+                                    <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
+                                    <div class="portfolio-box-caption">
+                                        <div class="portfolio-box-caption-content">
+                                            <div class="project-category text-faded">
+                                                Event
+                                            </div>
+                                            <div class="project-name">
+                                                // Event Category 3
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <p></p>
+                    <a href="#on-going" class="page-scroll btn btn-default btn-xl sr-button">Check out the others</a>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+-->
 
 
-      <div class="col-md-12">
-        <div class="row">
-          <ul class="w3-navbar w3-white">
-            <li class="col-md-4"><a href="javascript:void(0)" onclick="openTab('EventManager')">Event Manager</a></li>
-            <li class="col-md-4"><a href="javascript:void(0)" onclick="openTab('TeamLeader')">Team Leader</a></li>
-            <li class="col-md-4"><a href="javascript:void(0)" onclick="openTab('Member')">Member</a></li>
-          </ul>
+    <section class="no-padding" id="on-going">
+        <div class="container-fluid">
+            <div class="row no-gutter popup-gallery">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Event
+                                </div>
+                                <div class="project-name">
+                                    // Event Category 1
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Event
+                                </div>
+                                <div class="project-name">
+                                    // Event Category 2
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Event
+                                </div>
+                                <div class="project-name">
+                                    // Event Category 3
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/4.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Event
+                                </div>
+                                <div class="project-name">
+                                    // Event Category 4
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/5.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Event
+                                </div>
+                                <div class="project-name">
+                                    // Event Category 5
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Event
+                                </div>
+                                <div class="project-name">
+                                    // Event Category Others
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div id="EventManager" class="w3-container user" tabindex="1">
-        <h2>Event Manager</h2>
-        <form>
-          <input type="text" id="fname" name="fname" placeholder="Event Name">
-        </form>
-        <div>
-          <form>
-            <select id="eventType" name="eventType">
-              <option value="--Select an Event Type--">--Select an Event Type--</option>
-              <option value="Type 1">Type 1</option>
-              <option value="Type 2">Type 2</option>
-              <option value="Type 3">Type 3</option>
-            </select>
-          </form>
-        </div>
-        <form>
-          <input type="text" id="fname" name="fname" placeholder="Date e.g. dd/mm/yy">
-        </form>
-        <form>
-          <input type="text" id="fname" name="fname" placeholder="Team size e.g. 1 - 3 ">
-        </form>
-        <form>
-          <input type="text" id="fname" name="fname" placeholder="Team submission deadline (dd/mm/yy)">
-        </form>
-        <form>
-          <textarea placeholder="Add some descriptions..."></textarea>
-        </form>
-        <input type="reset" value="Reset" onclick="resetFunction()">
-        <input type="submit" value="Create" onclick="createFunction()">
-      </div>
-
-      <div id="TeamLeader" class="w3-container  user" tabindex="2">
-        <h2>Team Leader</h2>
-        <div>
-          <form>
-            <input type="text" id="fname" name="fname" placeholder="Team Name">
-          </form>
-        </div>
-        <div>
-          <form>
-            <select id="eventType" name="eventType">
-              <option value="--Select an Event Type--">--Select an Event--</option>
-              <option value="Type 1">Event 1</option>
-              <option value="Type 2">Event 2</option>
-              <option value="Type 3">Event 3</option>
-            </select>
-          </form>
-        </div>
-        <div>
-          <form>
-            <input type="text" id="fname" name="fname" placeholder="Team size e.g. 1 - 3 ">
-          </form>
-        </div>
-        <div>
-          <form>
-            <input type="text" id="fname" name="fname" placeholder="Request acceptance deadline (dd/mm/yy)">
-          </form>
-        </div>
-        <div>
-          <form>
-            <textarea placeholder="Add some descriptions..."></textarea>
-          </form>
-        </div>
-        <input type="reset" value="Reset" onclick="resetFunction()">
-        <input type="submit" value="Create" onclick="createFunction()">
-      </div>
-
-      <div id="Member" class="w3-container  user" tabindex="3">
-        <h2>Member</h2>
-        <div>
-          <form>
-            <select id="eventType" name="eventType">
-              <option value="--Select an Event Type--">--Select an Event--</option>
-              <option value="Type 1">Event 1</option>
-              <option value="Type 2">Event 2</option>
-              <option value="Type 3">Event 3</option>
-            </select>
-          </form>
-        </div>
-        <div>
-          <form>
-            <select id="eventType" name="eventType">
-              <option value="--Select an Event Type--">--Select an Team--</option>
-              <option value="Type 1">Team 1</option>
-              <option value="Type 2">Team 2</option>
-              <option value="Type 3">Team 3</option>
-            </select>
-          </form>
-        </div>
-        <input type="submit" value="Send request" onclick="createFunction()">
-      </div>
-
-      <div id="TeamLeader" class="w3-container  user">
-        <h2>Team Leader</h2>
-        <p>Make a Team</p>
-      </div>
-
-      <div id="Member" class="w3-container  user">
-        <h2>Member</h2>
-        <p>Be a Member</p>
-      </div>
-
-</body>
-
-
-
-<!-- /END THE FEATURETTES -->
-<!-- FOOTER -->
-<hr>
-<footer>
-  <p class="pull-right"><a href="#">Back to top</a></p>
-  <p>&copy; 2017 NOW3H3R3 </p>
-  <p>Powered by <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></p>
-</footer>
-</div>
-<!-- /.container -->
-
-<!-- JavaScript of this page -->
-<script src="js/index.js"></script>
-<script>
-function openTab(userName) {
-    var i;
-    var x = document.getElementsByClassName("user");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";
-    }
-    document.getElementById(userName).style.display = "block";
+    </section>
     
-}
 
-function resetFunction() {
-    confirm("Are you sure you want to reset?");
-}
-function createFunction() {
-    confirm("Have you filled in all the fields?");
-}
-$("form").submit(function (e) {
-            e.preventDefault();
-            // alert("call some function here");
-        });
-</script>
+    <section class="bg-dark">
+        <div class="container text-center">
+            <!--<div class="call-to-action">-->
+                <div>
+                <h2>Can't find any interested?</h2>
+                <a href="#create" class="page-scroll btn btn-default btn-xl sr-button">Create Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="create">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Create Your Own Events / Teams</h2>
+                    <hr class="primary">
+                    <input id="input_text" type="text" class="input-lg">
+                    <br>
+                    <em>Enter a name (e.g. COMP3111-L1, COMP3111-L2 or COMP3111H) to create/join an event</em>
+                    <br>
+                    <br>
+
+                    <div>
+
+                        <button id="btn_admin" type="button" class="btn btn-primary">Administrator</button>
+
+
+
+                        <button id="btn_leader" type="button" class="btn btn-primary">Team Leader</button>
+
+                        <button id="btn_member" type="button" class="btn btn-primary">Member</button>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
+                        <h3>Sturdy Templates</h3>
+                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
+                        <h3>Ready to Ship</h3>
+                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
+                        <h3>Up to Date</h3>
+                        <p class="text-muted">We update dependencies to keep things fresh.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
+                        <h3>Made with Love</h3>
+                        <p class="text-muted">You have to make your websites with love these days!</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </section>
+
+    <!--<section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter popup-gallery">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project <Name></Name>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/4.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/5.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
+                        <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <section id="contact" class="bg-lightblue">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Development Team</h2>
+                    <hr class="primary">
+                    <p>NOW3H3R3</p>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail text-center">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=member2&w=150&h=150" style="width:304px;height:228px;border:0;"
+                            class="img-circle img-responsive">
+                        <div class="caption">
+                            <h4>Nicola Yip</h4>
+                            <p>nyip@ust.hk</p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail text-center">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=member2&w=150&h=150" style="width:304px;height:228px;border:0;"
+                            class="img-circle img-responsive">
+                        <div class="caption">
+                            <h4>James Twisleton</h4>
+                            <p>ajtwisleton@ust.hk</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail text-center">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=member2&w=150&h=150" style="width:304px;height:228px;border:0;"
+                            class="img-circle img-responsive">
+                        <div class="caption">
+                            <h4>Leung Kung Ming</h4>
+                            <p>kmleungaj@ust.hk</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail text-center">
+                        <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=member2&w=150&h=150" style="width:304px;height:228px;border:0;"
+                            class="img-circle img-responsive">
+                        <div class="caption">
+                            <h4>Wong Heng Kwong</h4>
+                            <p>hkwongag@ust.hk</p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail text-center">
+
+                        <img id="myImg" src="pic/msluk.jpg" alt=" " width="300" height="200">
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+                            <span class="close">Close</span>
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                        </div>
+
+
+
+
+                        <div class="caption">
+                            <!-- Trigger/Open The Modal -->
+                            <button id="myBtn">About Me</button>
+
+                            <!-- The Modal -->
+                            <div id="myBox" class="box">
+
+                                <!-- Modal content -->
+                                <div class="box-content">
+                                    <div class="box-header">
+                                        <h2>
+                                            <font color="SlateBlue">Luk Man Sum</font>
+                                        </h2>
+                                    </div>
+                                    <div class="box-body">
+                                        <p>
+                                            <font color="Indigo">Hello, I'm Brian. Year3 COMP Student!</font>
+                                        </p>
+                                        <p>
+                                            <font color="RebeccaPurple"><span class="glyphicon glyphicon-envelope"></span> msluk@ust.hk
+                                            </font>
+                                        </p>
+                                    </div>
+                                    <div class="box-footer">
+                                        <h3>
+                                            <a href="https://www.youtube.com/watch?v=kxopViU98Xo">
+                                                <font color="DarkMagenta">"More about me~</font>
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/creative.min.js"></script>
+    <script src="js/video.js"></script>
+    <!-- Customized libraries shared by pages -->
+    <script src="js/site.js"></script>
+    <!-- JavaScript of this page -->
+    <script src="js/index.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/box.js"></script>
 
 </body>
 
