@@ -25,19 +25,21 @@ function getRandomIntInclusive(min, max) {
 // Please change this function accordingly
 // Reference: https://console.firebase.google.com 
 //
-
 function initalizeFirebase() {
 	
-  // Initialize Firebase
+
+  //Initialize firebase
   var config = {
-    apiKey: "AIzaSyDTXQFSuriwxpvJd0mZHElmLmhL8AIYmWE",
-    authDomain: "teamform-15bcb.firebaseapp.com",
-    databaseURL: "https://teamform-15bcb.firebaseio.com",
-    storageBucket: "teamform-15bcb.appspot.com",
+    apiKey: "AIzaSyCTAsmdevkfSfT_BUGEFiA7W_zeBnBXtao",
+    authDomain: "comp3111-1b643.firebaseapp.com",
+    databaseURL: "https://comp3111-1b643.firebaseio.com",
+    storageBucket: "comp3111-1b643.appspot.com",
+    messagingSenderId: "581810166146"
   };
   firebase.initializeApp(config);
 
 }    
+
 
 //
 // User-defined function - Useful for retrieving an object once, without 3-way sync 

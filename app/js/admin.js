@@ -10,6 +10,8 @@ $(document).ready(function(){
 
 });
 
+
+
 angular.module('teamform-admin-app', ['firebase'])
 .controller('AdminCtrl', ['$scope', '$firebaseObject', '$firebaseArray', function($scope, $firebaseObject, $firebaseArray) {
 	
@@ -20,7 +22,7 @@ angular.module('teamform-admin-app', ['firebase'])
 			
 	// Call Firebase initialization code defined in site.js
 	initalizeFirebase();
-	
+
 	var refPath, ref, eventName;
 
 	eventName = getURLParameter("q");
@@ -88,7 +90,7 @@ angular.module('teamform-admin-app', ['firebase'])
 		$scope.param.$save();
 		
 		// Finally, go back to the front-end
-		window.location.href= "index.html";
+		window.location.href= "index_with_template.html";
 	}
 	
 		
