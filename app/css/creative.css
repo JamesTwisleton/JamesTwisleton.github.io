@@ -12,11 +12,14 @@ body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
 }
 
+/*
+#inner {
+    width: 50%;
+    margin: 0 auto; 
+}
+*/
 
-
-
-
-.row .thumbnail {
+.row .thumbnail{
     border:0;
     box-shadow:0;
     border-radius:0;
@@ -30,6 +33,9 @@ hr {
 hr.light {
   border-color: white;
 }
+
+
+
 a {
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
@@ -67,7 +73,7 @@ p {
 .text-faded {
   color: rgba(255, 255, 255, 0.7);
 }
-section {
+section  {
   padding: 30px 30px;
 }
 aside {
