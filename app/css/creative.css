@@ -12,7 +12,12 @@ body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
 }
 
-
+/*
+#inner {
+    width: 50%;
+    margin: 0 auto; 
+}
+*/
 
 .row .thumbnail{
     border:0;
@@ -29,9 +34,7 @@ hr.light {
   border-color: white;
 }
 
-container (odd) {
 
-}
 
 a {
   -webkit-transition: all 0.35s;
