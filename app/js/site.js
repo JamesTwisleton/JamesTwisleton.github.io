@@ -40,6 +40,14 @@ function initalizeFirebase() {
 
 }    
 
+function compareString(string1,string2){
+  return string1==string2;
+}
+
+function compareBoolean(boolean1,boolean2){
+  return boolean1==boolean2;
+}
+
 
 //
 // User-defined function - Useful for retrieving an object once, without 3-way sync 
