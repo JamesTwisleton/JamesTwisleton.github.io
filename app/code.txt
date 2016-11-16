@@ -1,0 +1,79 @@
+class Team{
+    int id;         // indicating whos team
+    double team_score = 0;       // initial score
+    int noOfMember = 1;     // = 1 because must be a leader there
+}
+
+class People{           // perhaps an derived class
+    string name;
+    int answer[10];
+}
+
+class Leader{       // maybe inherits from People
+    int id;
+    string name;
+    int answer[10];
+}
+
+class Member{       // maybe inherits from People
+    string name;
+    int answer[10];
+    int member_score = o;  // score for each member
+}
+
+class User{         // maybe inherits from People
+    string name;
+    int answer[10];
+    void suggest();     // for suggesting teams
+}
+
+int question[10];       // storing the 10 question tags
+
+void matchingPeople( Member.answer[], User.answer[]);
+
+Team team_array[];      // storing existing teams, using Team.id to store in each element
+pointer_to_team;        // should have a pointer to point to the team in the array, but i dont know how to code this part
+
+matchingPeople( ..., ...){
+    
+    for(int i=0, i<10, i++){
+        if ( Member.answer[i] == User.answer[i] ) {
+            Member.member_score += 1;
+        }
+    }
+}
+
+matchingTeam( team_array[], User){
+    for(int i=0, i<sizeof(team_array),, i++){
+        *pointer_to_team .......        // dereference the pointer_to_team to get the team and call matchingPeople to compare each people in the team
+                                        // but i dont know how to write this part in correct syntax
+                                        // the i in the for loop is the pointer index, i.e. compare next team, compare next team .......
+    }
+}
+
+suggest(){
+
+    for (int i=0, i < noOfMember, i++){
+        team_score += member[i].member_score  ;  
+    }
+
+    int no_of_suggest_team ;
+
+    // it may be simpler to code the case we must suggest at least 5 teams to the user though it is not really make sense
+
+    if (no_of_suggest_team <= 5){         // base case
+        if (sizeof(team_array) <=5)
+            suggest all existing teams;
+        }
+    else{
+    for(int i=0, i<sizeof(team_array), i++)){
+            if ( *pointer_to_team[i+1].team_score >= *pointer_to_team[i].team_score){      // compare the score with the next team
+                cout << team[i+1].name;
+                if (no_of_suggest_team > 5){
+                    need to kick out the team with lowest score and fill in the new one
+                }
+            }
+    }
+    
+
+}
