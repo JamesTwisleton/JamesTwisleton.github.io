@@ -21,7 +21,7 @@ angular.module('teamform-member-app', ['firebase'])
 	
 	$scope.userID = "";
 	$scope.userName = "";
-    $scope.word1 = false;
+    $scope.word1 = "";
     $scope.word2 = false;
     $scope.word3 = false;
     $scope.word4 = false;
@@ -45,6 +45,24 @@ angular.module('teamform-member-app', ['firebase'])
 	
 	$scope.loadFunc = function() {
 		var userID = $scope.userID;
+        var word1 = $.trim( $scope.word1 );
+        var word2 = $.trim( $scope.word2 );
+        var word3 = $.trim( $scope.word3 );
+        var word4 = $.trim( $scope.word4 );
+        var word5 = $.trim( $scope.word5 );
+        var word6 = $.trim( $scope.word6 );
+        var word7 = $.trim( $scope.word7 );
+        var word8 = $.trim( $scope.word8 );
+        var word9 = $.trim( $scope.word9 );
+        var word10 = $.trim( $scope.word10 );
+        var word11 = $.trim( $scope.word11 );
+        var word12 = $.trim( $scope.word12 );
+        var word13 = $.trim( $scope.word13 );
+        var word14 = $.trim( $scope.word14 );
+        var word15 = $.trim( $scope.word15 );
+        var userGender = $.trim( $scope.userGender );
+        var userfos = $.trim( $scope.userfos );
+        
 		if ( userID !== '' ) {
 			
 			var refPath = getURLParameter("q") + "/member/" + userID;
@@ -63,6 +81,27 @@ angular.module('teamform-member-app', ['firebase'])
 				else {
 					$scope.selection = [];
 				}
+                
+                
+                	if ( data.child("Banter").val() != null ) {
+					$scope.word1 = data.child("Banter").val();
+				} else {
+					$scope.word1 = "";
+				}
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
 				$scope.$apply();
 			});
 		}
