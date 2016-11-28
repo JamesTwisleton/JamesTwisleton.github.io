@@ -168,6 +168,7 @@ angular.module('teamform-team-app', ['firebase'])
 		if ( 
 		    $scope.param.teamMembers.indexOf(r) < 0 && 
 			$scope.param.teamMembers.length < $scope.param.currentTeamSize  ) {
+			$scope.param.teamMembers.length < $scope.param.currentTeamSize  ) {
 				
 			// Not exists, and the current number of team member is less than the preferred team size
 			$scope.param.teamMembers.push(r);

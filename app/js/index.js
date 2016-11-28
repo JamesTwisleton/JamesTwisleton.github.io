@@ -7,6 +7,7 @@ $(document).ready(function(){
     		var url = "admin.html?q=" + val;
     		window.location.href= url ;
     		return false;
+
     	}
     });
 
