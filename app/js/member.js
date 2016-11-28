@@ -36,6 +36,9 @@ angular.module('teamform-member-app', ['firebase'])
     $scope.word13 = false;
     $scope.word14 = false;
     $scope.word15 = false;
+    $scope.userGender = "";
+    $scope.userfos = "";
+
 	$scope.teams = {};
 	
 	
@@ -70,6 +73,23 @@ angular.module('teamform-member-app', ['firebase'])
 		
 		var userID = $.trim( $scope.userID );
 		var userName = $.trim( $scope.userName );
+        var word1 = $.trim( $scope.word1 );
+        var word2 = $.trim( $scope.word2 );
+        var word3 = $.trim( $scope.word3 );
+        var word4 = $.trim( $scope.word4 );
+        var word5 = $.trim( $scope.word5 );
+        var word6 = $.trim( $scope.word6 );
+        var word7 = $.trim( $scope.word7 );
+        var word8 = $.trim( $scope.word8 );
+        var word9 = $.trim( $scope.word9 );
+        var word10 = $.trim( $scope.word10 );
+        var word11 = $.trim( $scope.word11 );
+        var word12 = $.trim( $scope.word12 );
+        var word13 = $.trim( $scope.word13 );
+        var word14 = $.trim( $scope.word14 );
+        var word15 = $.trim( $scope.word15 );
+        var userGender = $.trim( $scope.userGender );
+        var userfos = $.trim( $scope.userfos );
 		
 		if ( userID !== '' && userName !== '' ) {
 									
