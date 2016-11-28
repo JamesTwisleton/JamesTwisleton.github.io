@@ -20,7 +20,22 @@ angular.module('teamform-member-app', ['firebase'])
 	initalizeFirebase();
 	
 	$scope.userID = "";
-	$scope.userName = "";	
+	$scope.userName = "";
+    $scope.word1 = false;
+    $scope.word2 = false;
+    $scope.word3 = false;
+    $scope.word4 = false;
+    $scope.word5 = false;
+    $scope.word6 = false;
+    $scope.word7 = false;
+    $scope.word8 = false;
+    $scope.word9 = false;
+    $scope.word10 = false;
+    $scope.word11 = false;
+    $scope.word12 = false;
+    $scope.word13 = false;
+    $scope.word14 = false;
+    $scope.word15 = false;
 	$scope.teams = {};
 	
 	
@@ -60,6 +75,23 @@ angular.module('teamform-member-app', ['firebase'])
 									
 			var newData = {				
 				'name': userName,
+                'Banter': word1,
+                'Blunt': word2,
+                'Cats': word3,
+                'Chill': word4,
+                'Colours': word5,
+                'Creative': word6,
+                'Design': word7,
+                'Dogs': word8,
+                'Flamboyant': word9,
+                'Foodie': word10,
+                'Fun': word11,
+                'Gender balance': word12,
+                'Proactive': word13,
+                'Punctuality': word14,
+                'Rules': word15,
+                'gender': userGender,
+                'Field of studies': userfos,
 				'selection': $scope.selection
 			};
 			
