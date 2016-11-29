@@ -44,23 +44,23 @@ angular.module('teamform-member-app', ['firebase'])
 	
 	$scope.loadFunc = function() {
 		var userID = $scope.userID;
-        var word1 = $.trim( $scope.word1 );
-        var word2 = $.trim( $scope.word2 );
-        var word3 = $.trim( $scope.word3 );
-        var word4 = $.trim( $scope.word4 );
-        var word5 = $.trim( $scope.word5 );
-        var word6 = $.trim( $scope.word6 );
-        var word7 = $.trim( $scope.word7 );
-        var word8 = $.trim( $scope.word8 );
-        var word9 = $.trim( $scope.word9 );
-        var word10 = $.trim( $scope.word10 );
-        var word11 = $.trim( $scope.word11 );
-        var word12 = $.trim( $scope.word12 );
-        var word13 = $.trim( $scope.word13 );
-        var word14 = $.trim( $scope.word14 );
-        var word15 = $.trim( $scope.word15 );
-        var userGender = $.trim( $scope.userGender );
-        var userfos = $.trim( $scope.userfos );
+//        var word1 = $.trim( $scope.word1 );
+//        var word2 = $.trim( $scope.word2 );
+//        var word3 = $.trim( $scope.word3 );
+//        var word4 = $.trim( $scope.word4 );
+//        var word5 = $.trim( $scope.word5 );
+//        var word6 = $.trim( $scope.word6 );
+//        var word7 = $.trim( $scope.word7 );
+//        var word8 = $.trim( $scope.word8 );
+//        var word9 = $.trim( $scope.word9 );
+//        var word10 = $.trim( $scope.word10 );
+//        var word11 = $.trim( $scope.word11 );
+//        var word12 = $.trim( $scope.word12 );
+//        var word13 = $.trim( $scope.word13 );
+//        var word14 = $.trim( $scope.word14 );
+//        var word15 = $.trim( $scope.word15 );
+//        var userGender = $.trim( $scope.userGender );
+//        var userfos = $.trim( $scope.userfos );
         
 		if ( userID !== '' ) {
 			
@@ -82,22 +82,126 @@ angular.module('teamform-member-app', ['firebase'])
 				}
                 
                 
-                	if ( data.child("Banter").val() != null ) {
+     				if (data.child("Banter").val() != null ) {
 					$scope.word1 = data.child("Banter").val();
-				} else {
+				}
+				else {
 					$scope.word1 = [];
 				}
                 
+            
+         				if (data.child("Blunt").val() != null ) {
+					$scope.word2 = data.child("Blunt").val();
+				}
+				else {
+					$scope.word2 = [];
+                    
+				}
                 
                 
+                			if (data.child("Cats").val() != null ) {
+					$scope.word3 = data.child("Cats").val();
+				}
+				else {
+					$scope.word3 = [];
+				}
                 
                 
+     				if (data.child("Chill").val() != null ) {
+					$scope.word4 = data.child("Chill").val();
+				}
+				else {
+					$scope.word4 = [];
+				}
+                
+            
+         				if (data.child("Colours").val() != null ) {
+					$scope.word5 = data.child("Colours").val();
+				}
+				else {
+					$scope.word5 = [];
+                    
+				}
+            
+                
+                			if (data.child("Creative").val() != null ) {
+					$scope.word6 = data.child("Creative").val();
+				}
+				else {
+					$scope.word6 = [];
+				}
                 
                 
+     				if (data.child("Design").val() != null ) {
+					$scope.word7 = data.child("Design").val();
+				}
+				else {
+					$scope.word7 = [];
+				}
+                
+            
+         				if (data.child("Dogs").val() != null ) {
+					$scope.word8 = data.child("Dogs").val();
+				}
+				else {
+					$scope.word8 = [];
+                    
+				}
+                
+                        if (data.child("Flamboyant").val() != null ) {
+					$scope.word9 = data.child("Flamboyant").val();
+				}
+				else {
+					$scope.word9 = [];
+				}
                 
                 
+                        if (data.child("Foodie").val() != null ) {
+                    $scope.word10 = data.child("Foodie").val();
+                }
+                else {
+                    $scope.word10 = [];
+                }
+
+
+                        if (data.child("Fun").val() != null ) {
+                    $scope.word11 = data.child("Fun").val();
+                }
+                else {
+                    $scope.word11 = [];
+
+                }
+
+                        if (data.child("Gender balance").val() != null ) {
+                    $scope.word12 = data.child("Gender balance").val();
+                }
+                else {
+                    $scope.word12 = [];
+                }
                 
                 
+                                        if (data.child("Proactive").val() != null ) {
+                    $scope.word13 = data.child("Proactive").val();
+                }
+                else {
+                    $scope.word13 = [];
+                }
+
+
+                        if (data.child("Punctuality").val() != null ) {
+                    $scope.word14 = data.child("Punctuality").val();
+                }
+                else {
+                    $scope.word14 = [];
+
+                }
+
+                        if (data.child("Rules").val() != null ) {
+                    $scope.word15 = data.child("Rules").val();
+                }
+                else {
+                    $scope.word15 = [];
+                }
                 
                 
                 
@@ -133,21 +237,21 @@ angular.module('teamform-member-app', ['firebase'])
 									
 			var newData = {				
 				'name': userName,
-                'Banter': word1,
-                'Blunt': word2,
-                'Cats': word3,
-                'Chill': word4,
-                'Colours': word5,
-                'Creative': word6,
-                'Design': word7,
-                'Dogs': word8,
-                'Flamboyant': word9,
-                'Foodie': word10,
-                'Fun': word11,
-                'Gender balance': word12,
-                'Proactive': word13,
-                'Punctuality': word14,
-                'Rules': word15,
+                'Banter': $scope.word1,
+                'Blunt': $scope.word2,
+                'Cats': $scope.word3,
+                'Chill': $scope.word4,
+                'Colours': $scope.word5,
+                'Creative': $scope.word6,
+                'Design': $scope.word7,
+                'Dogs': $scope.word8,
+                'Flamboyant': $scope.word9,
+                'Foodie': $scope.word10,
+                'Fun': $scope.word11,
+                'Gender balance': $scope.word12,
+                'Proactive': $scope.word13,
+                'Punctuality': $scope.word14,
+                'Rules': $scope.word15,
                 'gender': userGender,
                 'Field of studies': userfos,
 				'selection': $scope.selection
