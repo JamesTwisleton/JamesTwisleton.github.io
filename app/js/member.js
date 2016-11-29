@@ -401,7 +401,7 @@ $scope.matchFunc = function() {
 						}	
 
 					})
-						$scope.resultString+="Score for team " + ArrayOfTeamsItem.$id + " is "+ $scope.matchScore+"\n";
+						$scope.resultString+="Score for team " + ArrayOfTeamsItem.$id + " is "+ Math.round(($scope.matchScore/$scope.membernumber)*100)+"\n";
 						// $scope.teamScores.ArrayOfTeamsItem.$id = $scope.matchScore;
 
 						$scope.teamScores[ArrayOfTeamsItem.$id] = $scope.matchScore;						
