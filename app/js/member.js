@@ -82,7 +82,22 @@ if ( userID !== '' ) {
 		}
 
 
-
+		if (data.child("gender").val() != null ) {
+			$scope.userGender = data.child("gender").val();
+		}
+		else {
+			$scope.userGender = "";
+		}
+        
+        		if (data.child("Field of studies").val() != null ) {
+			$scope.userfos = data.child("Field of studies").val();
+		}
+		else {
+			$scope.userfos = "";
+		}
+        
+        
+        
 
 
 
