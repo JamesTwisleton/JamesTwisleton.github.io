@@ -21,7 +21,7 @@ angular.module('teamform-member-app', ['firebase'])
 	
 	$scope.userID = "";
 	$scope.userName = "";
-    $scope.word1 = "";
+    $scope.word1 = false;
     $scope.word2 = false;
     $scope.word3 = false;
     $scope.word4 = false;
@@ -38,7 +38,6 @@ angular.module('teamform-member-app', ['firebase'])
     $scope.word15 = false;
     $scope.userGender = "";
     $scope.userfos = "";
-
 	$scope.teams = {};
 	
 	
@@ -86,7 +85,7 @@ angular.module('teamform-member-app', ['firebase'])
                 	if ( data.child("Banter").val() != null ) {
 					$scope.word1 = data.child("Banter").val();
 				} else {
-					$scope.word1 = "";
+					$scope.word1 = [];
 				}
                 
                 
@@ -171,6 +170,7 @@ angular.module('teamform-member-app', ['firebase'])
 		}
 	}
 	
+    
 	$scope.refreshTeams = function() {
 		var refPath = getURLParameter("q") + "/team";	
 		var ref = firebase.database().ref(refPath);
@@ -205,5 +205,19 @@ angular.module('teamform-member-app', ['firebase'])
 	
 	
 	$scope.refreshTeams(); // call to refresh teams...
+    
+    
+    
+
 		
 }]);
+
+
+
+
+
+
+
+
+
+
