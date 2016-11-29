@@ -401,7 +401,9 @@ $scope.matchFunc = function() {
 						}	
 
 					})
-						$scope.resultString+="Score for team " + ArrayOfTeamsItem.$id + " is "+ Math.round(($scope.matchScore/$scope.membernumber)*100)+"\n";
+						$scope.resultString+="Your compatibility score for team " + ArrayOfTeamsItem.$id + 
+						" is " + Math.round(($scope.matchScore/$scope.membernumber)*100)
+						+ " - at the moment they have " + $scope.membernumber + " members.\n\n";
 						// $scope.teamScores.ArrayOfTeamsItem.$id = $scope.matchScore;
 
 						$scope.teamScores[ArrayOfTeamsItem.$id] = $scope.matchScore;						
