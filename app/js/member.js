@@ -82,6 +82,14 @@ if ( userID !== '' ) {
 		}
 
 
+
+
+
+
+
+
+
+
 		if (data.child("Banter").val() != null ) {
 			$scope.word1 = data.child("Banter").val();
 		}
@@ -216,15 +224,16 @@ if ( userID !== '' ) {
 
 
 
-
-
 $scope.matchFunc = function() {
+	
+	$scope.teamScores = {};
 
 
 
 	//Get the firebase path for the teams for the event given by the URL
 	var refPath = getURLParameter("q") + "/team";	
 	var ref = firebase.database().ref(refPath);		
+	$scope.resultString = "";
 
 	//Make an array of teams from the firebase
 	$scope.ArrayOfTeams = $firebaseArray(ref);		
@@ -239,7 +248,7 @@ $scope.matchFunc = function() {
 
 			//count number of members		
 			if (typeof ArrayOfTeamsItem.teamMembers != 'undefined'){	
-					
+
 					//count the number of members within the team
 					console.log(ArrayOfTeamsItem.teamMembers.length); 
 					$scope.membernumber=ArrayOfTeamsItem.teamMembers.length;			
@@ -252,22 +261,148 @@ $scope.matchFunc = function() {
 					})
 
 					console.log(teamMemberIDs);
-
+					$scope.currentTeamName=ArrayOfTeamsItem.$id;
 
 					//saving value obtained from console.log to membernumber
 					//console.log($scope.membernumber);	
 					$scope.matchScore =0;
-			}	
-			
 
 
-		})
+					//Get the firebase path for the members for the event given by the URL
+					var refPath = getURLParameter("q") + "/member";	
+					var ref = firebase.database().ref(refPath);		
 
-	});
+					//Make an array of members from the firebase
+					$scope.ArrayOfMembers = $firebaseArray(ref);		
+					
+					$scope.ArrayOfMembers.$loaded()			
+					.then(function(){
+						angular.forEach($scope.ArrayOfMembers, function(Member) {																						
+							//console.log(Member.$id);
 
-// 		$scope.memberArray.$loaded().then(function(length) {
-//    console.log($scope.memberArray.length); // data is loaded here
-// });
+
+							if(teamMemberIDs.indexOf(Member.$id)!=-1){
+								console.log("Matching with" + Member.$id);
+
+								if($scope.word1==Member.Banter){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+
+								if($scope.word2==Member.Blunt){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+
+								if($scope.word3==Member.Cats){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+
+								if($scope.word4==Member.Chill){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+
+								if($scope.word5==Member.Colours){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+								if($scope.word6==Member.Creative){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+								if($scope.word7==Member.Design){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+								if($scope.word8==Member.Dogs){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+
+								if($scope.userfos!=Member.FieldOfStudies){
+									$scope.matchScore=$scope.matchScore+5;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+
+								if($scope.word9==Member.Flamboyant){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+
+								if($scope.word10==Member.Foodie){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+
+								if($scope.word11==Member.Fun){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+
+								if($scope.word12==Member.GenderBalance){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+
+								if($scope.word13==Member.Proactive){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+
+								if($scope.word14==Member.Punctuality){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+
+								if($scope.word15==Member.Rules){
+									$scope.matchScore=$scope.matchScore+1;
+									console.log($scope.matchScore);
+									console.log("Matching with" + Member.$id);
+								}
+
+								var nameString = ArrayOfTeamsItem.$id;
+
+								
+								//$scope.teamsScores.nameString=$scope.matchScore;
+
+							//console.log(Member.Banter);
+						}	
+
+					})
+						$scope.resultString+="Score for team " + ArrayOfTeamsItem.$id + " is "+ $scope.matchScore+"\n";
+						// $scope.teamScores.ArrayOfTeamsItem.$id = $scope.matchScore;
+
+						$scope.teamScores[ArrayOfTeamsItem.$id] = $scope.matchScore;						
+
+
+						$scope.matchScore=0;						
+						//console.log($scope.teamsScores);
+					});
+					// console.log($scope.teamScores);
+
+					// for (var i in $scope.teamScores){console.log(i);};
+					// // console.log($scope.teamScores);
+
+				}	
+			})
+});
 }
 
 
@@ -279,7 +414,7 @@ $scope.matchFunc = function() {
 
 $scope.saveFunc = function() {
 
-
+	var resultString = $.trim($scope.resultString);
 	var userID = $.trim( $scope.userID );
 	var userName = $.trim( $scope.userName );
 	var word1 = $.trim( $scope.word1 );
