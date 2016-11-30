@@ -108,19 +108,18 @@
 
                   <div id="events_page_controller" ng-controller="EventsCtrl">
                    <div class="row">
-                     <div class="col-md-10 col-xs-10 text-right" >
+                     <div class="col-md-6 col-xs-6 text-right" >
 
                       <h3></h3>
                       <ul ng-repeat="e in event">
                         <li>
-                          {{e.$id}}  
-                            &nbsp;   &nbsp;   &nbsp;   &nbsp;
-                               &nbsp;   &nbsp;   
-
                           <!-- Button trigger modal -->
-                          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModalNorm">
-                            Contact event admin
-                          </button>
+                          <button style="padding: 0;
+                          border: none;
+                          background: none;
+                          "data-toggle="modal" data-target="#myModalNorm">
+                          {{e.$id}}
+                        </button>
                         </li>
 
                       </ul>
